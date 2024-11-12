@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from home.models import Class, Homepage
 from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -74,3 +75,17 @@ class PasswordSerializer(PasswordResetSerializer):
     """Custom serializer for rest_auth to solve reset password error"""
 
     password_reset_form_class = ResetPasswordForm
+
+
+class HomepageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Homepage
+        fields = "__all__"
+
+
+class ClassSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Class
+        fields = "__all__"
